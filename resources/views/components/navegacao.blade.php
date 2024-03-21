@@ -19,7 +19,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
+            <a class="nav-link d-flex align-items-center gap-2" href="{{ route('produto.index') }}">
               <svg class="bi"><use xlink:href="#cart"/></svg>
               Produto
             </a>
@@ -35,12 +35,6 @@
         <hr class="my-3">
 
         <ul class="nav flex-column mb-auto">
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
-              <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
-              Settings
-            </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center gap-2" href="#">
               <svg class="bi"><use xlink:href="#door-closed"/></svg>
