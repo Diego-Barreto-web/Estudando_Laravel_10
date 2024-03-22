@@ -6,38 +6,42 @@
     </div>
 
     <div>
-        <form action="" method="get">
+        <form action="{{ route('produto.index') }}" method="get">
             <input type="text" name="pesquisar" placeholder="Digite um nome">
             <button> Pesquisar </button>
             <a class="btn btn-success float-end" type="button" href="">Incluir Produto</a>
         </form>
 
         <div class="table-responsive small mt-4">
-            <table class="table table-striped table-sm">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Valor</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach ($findProduto as $produto)
-                    <tr>
-                        <td> {{ $produto->nome }} </td>
+            @if ($findProduto->isEmpty())
+                <p> Não existem dados </p>
+            @else
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($findProduto as $produto)
+                        <tr>
+                            <td> {{ $produto->nome }} </td>
                         <td> {{ 'R$ '. number_format($produto->valor, 2, ',', '.') }} </td>
                         <td>
                             <a href="" class="btn btn-light btn-sm">
                                 Editar
                             </a>
-                            <a href="" class="btn btn-danger btn-sm">
+                            <a href=" {{ route('produto.delete') }} " class="btn btn-danger btn-sm">
                                 Excluir
                             </a>
                         </td>
                     </tr> 
-                @endforeach
-              </tbody>
+                    @endforeach
+                </tbody>
             </table>
+            @endif
         </div>
     </div>
 @endsection
