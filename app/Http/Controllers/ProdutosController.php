@@ -21,6 +21,17 @@ class ProdutosController extends Controller
     }
 
     public function delete(Request $request) {
+        $id = $request->id;
+        $buscarRegistro = Produto::find($id);
+        $buscarRegistro->delete();
+        return response()->json(['success' => true]); 
+    }
 
+    public function cadastrarProduto(Request $request) {
+        if($request->method() == 'POST') {
+            
+        }
+
+        return view('pages.produtos.create');
     }
 }
