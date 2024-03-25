@@ -1,53 +1,25 @@
 @extends('index')
 
 @section('content')
-    <form>
+    <form class="form" method="POST" action="{{ route('cadastrar.produto') }}">
+        @csrf
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">Criar novo Produto</h1>
         </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-        </div>
-        </div>
-        <div class="form-group">
-        <label for="inputAddress">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="form-group">
-        <label for="inputAddress2">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputCity">City</label>
-            <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-            <option selected>Choose...</option>
-            <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip">
-        </div>
-        </div>
-        <div class="form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-            Check me out
-            </label>
-        </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control @error('nome') is-invalid @enderror" name="nome">
+            @if ($errors->has('nome'))
+                <div class="invalid-feedback"> {{ $errors->first('nome')}} </div>
+            @endif
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Valor</label>
+            <input class="form-control @error('valor') is-invalid @enderror" name="valor">
+            @if ($errors->has('nome'))
+                <div class="invalid-feedback"> {{ $errors->first('valor')}} </div>
+            @endif
+          </div>
+          <button type="submit" class="btn btn-success">CADASTRAR</button>
     </form>
 @endsection
