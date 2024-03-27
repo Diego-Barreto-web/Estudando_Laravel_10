@@ -9,7 +9,7 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Nome</label>
-            <input type="text" value="{{ isset($findProduto->nome) ? $findProduto->nome : @old('name') }}" class="form-control @error('nome') is-invalid @enderror" name="nome">
+            <input type="text" value="{{ isset($findProduto->nome) ? $findProduto->nome : @old('nome') }}" class="form-control @error('nome') is-invalid @enderror" name="nome">
             @if ($errors->has('nome'))
                 <div class="invalid-feedback"> {{ $errors->first('nome')}} </div>
             @endif

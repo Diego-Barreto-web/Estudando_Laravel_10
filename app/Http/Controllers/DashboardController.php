@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Produto;
+use App\Models\User;
 use App\Models\Venda;
 use Illuminate\Http\Request;
 
@@ -12,8 +13,9 @@ class DashboardController extends Controller
     public function index() {
         $totalDeProdutosCadastrados = $this->buscaTotalProdutoCadastrado();
         $totalDeClientesCadastrados = $this->buscaTotalClienteCadastrado();
-        $totalDeVendasCadastradas = $this->buscaTotalVendasCadastrado();
-        return view('pages.dashboard.dashboard', compact('totalDeProdutosCadastrados', 'totalDeClientesCadastrados', 'totalDeVendasCadastradas'));
+        $totalDeVendasCadastradas = $this->buscaTotalVendaCadastrado();
+        $totalDeUsuariosCadastrados = $this->buscaTotalUsuarioCadastrado();
+        return view('pages.dashboard.dashboard', compact('totalDeProdutosCadastrados', 'totalDeClientesCadastrados', 'totalDeVendasCadastradas', 'totalDeUsuariosCadastrados'));
     }
 
     public function buscaTotalProdutoCadastrado() {
@@ -26,10 +28,15 @@ class DashboardController extends Controller
 
         return $findCliente;
     }
-    public function buscaTotalVendasCadastrado() {
+    public function buscaTotalVendaCadastrado() {
         $findVenda = Venda::all()->count();
 
         return $findVenda;
     }
+    public function buscaTotalUsuarioCadastrado() {
+        $findUsuario = User::all()->count();
 
+        return $findUsuario;
+    }
+    
 }
