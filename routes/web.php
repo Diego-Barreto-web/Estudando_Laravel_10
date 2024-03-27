@@ -48,4 +48,6 @@ Route::prefix('vendas')->group(function() {
     // Route::put('/atualizarVenda/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
     // // Deleta Delete
     // Route::delete('/delete', [VendasController::class, 'delete'])->name('venda.delete');
+
+    Route::get('/enviaComprovantePorEmail/{id}', [VendasController::class, 'enviaComprovantePorEmail'])->name('enviaComprovantePorEmail.venda');
 });
