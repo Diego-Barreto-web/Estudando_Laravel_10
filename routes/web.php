@@ -2,23 +2,15 @@
 
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\VendasController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('index');
 });
 
+// Produtos
 Route::prefix('produtos')->group(function() {
     Route::get('/', [ProdutosController::class, 'index'])->name('produto.index');
     // Cadastro Create
@@ -31,6 +23,7 @@ Route::prefix('produtos')->group(function() {
     Route::delete('/delete', [ProdutosController::class, 'delete'])->name('produto.delete');
 });
 
+// Clientes
 Route::prefix('clientes')->group(function() {
     Route::get('/', [ClientesController::class, 'index'])->name('cliente.index');
     // Cadastro Create
@@ -41,4 +34,18 @@ Route::prefix('clientes')->group(function() {
     Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente'])->name('atualizar.cliente');
     // Deleta Delete
     Route::delete('/delete', [ClientesController::class, 'delete'])->name('cliente.delete');
+});
+
+// Vendas
+Route::prefix('vendas')->group(function() {
+    Route::get('/', [VendasController::class, 'index'])->name('venda.index');
+    // Cadastro Create
+    Route::get('/cadastrarVenda', [VendasController::class, 'cadastrarVenda'])->name('cadastrar.venda');
+    Route::post('/cadastrarVenda', [VendasController::class, 'cadastrarVenda'])->name('cadastrar.venda');
+    // Caso necessário atualizar venda antes de Entregue!
+    // // Atualiza Update
+    // Route::get('/atualizarVenda/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
+    // Route::put('/atualizarVenda/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
+    // // Deleta Delete
+    // Route::delete('/delete', [VendasController::class, 'delete'])->name('venda.delete');
 });

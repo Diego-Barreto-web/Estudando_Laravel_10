@@ -13,10 +13,10 @@ class ProdutosSeeder extends Seeder
      */
     public function run(): void
     {
-        Produto::create([
-            'nome' => 'Sophia Barreto',
-            'valor' => '50.00',
-        ]
-        );
+        // Produto::create([
+        //     'nome' => 'Sophia Barreto',
+        //     'valor' => '50.00',
+        // ]
+        // );
     }
 }

@@ -13,23 +13,23 @@ class ClientesSeeder extends Seeder
      */
     public function run(): void
     {
-        Cliente::create([
-            'nome' => 'Diego Barreto',
-            'email' => 'diegobarretopro@gmail.com',
-            'endereco' => 'rua x',
-            'logradouro' => 'rua x',
-            'cep' => '450555-385',
-            'bairro' => 'Felicia',
-        ]
-        );
-        Cliente::create([
-            'nome' => 'Teste Barreto',
-            'email' => 'Testebarretopro@gmail.com',
-            'endereco' => 'Teste x',
-            'logradouro' => 'Teste x',
-            'cep' => '450555-000',
-            'bairro' => 'Teste',
-        ]
-        );
+        // Cliente::create([
+        //     'nome' => 'Diego Barreto',
+        //     'email' => 'diegobarretopro@gmail.com',
+        //     'endereco' => 'rua x',
+        //     'logradouro' => 'rua x',
+        //     'cep' => '450555-385',
+        //     'bairro' => 'Felicia',
+        // ]
+        // );
+        // Cliente::create([
+        //     'nome' => 'Teste Barreto',
+        //     'email' => 'Testebarretopro@gmail.com',
+        //     'endereco' => 'Teste x',
+        //     'logradouro' => 'Teste x',
+        //     'cep' => '450555-000',
+        //     'bairro' => 'Teste',
+        // ]
+        // );
     }
 }
